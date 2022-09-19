@@ -28,8 +28,9 @@ Please use this starter template to answer the following questions:
 
 ### step 1-b. Identify vehicle features that appear as a stable feature on most vehicles :
 
-license plate and metal parts of the vehicle furthermore, signs and bushes of the scene reflect more and they are seen brighter in the intensity channel as well.
+looking at the BEV map results license plate and metal parts of the vehicle reflect more, they are seen brighter in the intensity channel and one of the stable features.
 rear-bumper, tail-lights are among other stable features.
-ceiling of the cars are also clearly visible as they have higher height among other points in the scene and if we have a vehicle like truck with even higher heights points are shown with more greenish colors.
+ceiling of the cars are also clearly visible. If we have a vehicle like truck with higher height, points are shown with more greenish colors.
+Lastly it is good to mention, with increasing the distance from the lidar we have less points and less visibility of objects.
 
 
