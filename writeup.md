@@ -5,14 +5,19 @@ Please use this starter template to answer the following questions:
 ### 1. Write a short recap of the four tracking steps and what you implemented there (filter, track management, association, camera fusion). Which results did you achieve? Which part of the project was most difficult for you to complete, and why?
 step one of the project needed implementing EKF to track sigle target and the input was limited to lidar data at first. As a usual approach for writing EKF algorithms it was needed to cpmlete predict() and update() functions. The challenge I faced here at the begining was the fact I did not notice we have lidar data that is 3d so dimension of F and Q should be 6*6. printing some of the inputs in the program quickly I noticed the problem and fixed my metrices. Formulasin Update and predict functions are standard formulas used in the Nanodegree course.
 RMSE plot of this first step hast been attached to the files as well.
+![alt text](https://github.com/PardisTaghavi/nd013-c2-fusion-starter/blob/main/img/rmseMean.png)
 
 
 Step Two of the project is related to implementing of the track managemen. tracks have been divided to three different states "initialized", "tentative" and "confirmed", and track score is added for tentative detections with score over the defined threshhold and for confirmed detections with score over confirmed threshhold. This part was more straight forward the point that I should have noticed was the fact based on the stated of the detections we delete them with considering different thresholds (e.g. only confirmed tracks are deleted based on the delete_threshold=0.6 but this number is high for deleting initial ot tentative detections and if in the case of using this number we would lose someof our detections).RMSE plot of the second step hast been attached to the files as well.
+![alt text](https://github.com/PardisTaghavi/nd013-c2-fusion-starter/blob/main/img/smseMeanTrackManagement.png)
+
 
 Step Three of the project has been the most challenging part for me becuase of the small mistakes I made at the first. This part mainly take care of defining association matrix, finding the distance of trackings and measurements using MHD gating and finding closest tracks and measurements with "get_closest_track_and_meas". First I implemented MHD and Gating functions and taking advantage of them wrote association_matrix running program here I did not get any error and I continued working on updating list of unassigned measurements and unassigned tracks and finding closest distance between tracks and measurements, but at the end of this work my algorithm was detecting nothing. Printing out association matrix I noticed my track list are empty re-checking everything first mistake was related to updating unassigned track fixing it program could detect first measurement and tracking list but later on it could not get updated correct finding some other mistakes one of them was related to the calculation of MHD distance and the first way I defined this distance was wrong. RMSE plot of the this step hast been attached to the files as well.
+![alt text](https://github.com/PardisTaghavi/nd013-c2-fusion-starter/blob/main/img/result3.png)
+
 
 Step four first take care of field of view based on camera. Later measurement function of the camera should be added(hx) which is a non-linear function. and lastly in the Measurement class attributes of the camera should be considered. RMSE plot of the this step hast been attached to the files as well.
-
+![alt text](https://github.com/PardisTaghavi/nd013-c2-fusion-starter/blob/main/img/result4.png)
 
 
 
